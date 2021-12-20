@@ -393,16 +393,38 @@ void Merge(Node *p, Node *q)
             last->Next=q;
         }
 }
+int IsLoop(Node *f)
+{
+    Node *p, *q;
+    p=q=f;
+    do
+    {
+        p=p->Next;
+        q=q->Next;
+        
+        q=q!=NULL? q->Next : NULL;
+    }while(p && q && p!=q);
+
+    return p==q?true:false;
+}
 int main()
 {
     int A[] = {1, 2, 6, 8, 15};
-    int B[] = {2,5,9,26,34};
     Create(A, 5);
-    Create2(B,5);
-    
-    Merge(first,second);
 
-    Display(third);
+    // Node *t1, *t2;
+    // t1=first->Next->Next;       //Uncomment for making the linked list loop
+    // t2=first->Next->Next->Next->Next;
+    // t2->Next=t1;
+
+    if(IsLoop(first))
+    {
+        cout<<"It is loop"<<endl;
+    }
+    else{
+        cout<<"Not Looop"<<endl;
+    }
+    
 
     return 0;
 }
