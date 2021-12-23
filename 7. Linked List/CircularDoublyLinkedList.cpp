@@ -7,7 +7,7 @@ class Node
         Node *prev;
         int data;
         Node *next;
-}*head;
+};
 class CDoublyLinkedList
 {
     private:
