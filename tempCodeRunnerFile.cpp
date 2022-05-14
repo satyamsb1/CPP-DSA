@@ -1,0 +1,1 @@
+if(root->rchild && root->lchild)
